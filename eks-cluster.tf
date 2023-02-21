@@ -3,7 +3,7 @@ module "eks" {
   version = "19.0.4"
 
   cluster_name    = local.cluster_name
-  cluster_version = "1.22"
+  cluster_version = "1.23"
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
@@ -18,7 +18,7 @@ module "eks" {
     one = {
       name = "node-group-1"
 
-      instance_types = ["t3.small"]
+      instance_types = ["t2.medium"]
 
       min_size     = 1
       max_size     = 2
@@ -28,7 +28,7 @@ module "eks" {
     two = {
       name = "node-group-2"
 
-      instance_types = ["t3.small"]
+      instance_types = ["t2.medium"]
 
       min_size     = 1
       max_size     = 2
